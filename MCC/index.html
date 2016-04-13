@@ -28,7 +28,7 @@
 		<script src="assets/js/orbital_math.js"></script>
 		<script src="assets/js/orbital_prediction.js"></script>
 		<script src="assets/js/hohmann-intercept.js"></script>
-		
+
 		<script src="assets/js/title_bar.js"></script>
 		<script src="assets/js/button_indicator.js"></script>
 		<script src="assets/js/readout_table.js"></script>
@@ -53,7 +53,7 @@
 		<link rel="stylesheet" type="text/css" href="assets/style/common.css">
 
 	</head>
-	
+
 	<body>
 
 		<nav>
@@ -122,7 +122,8 @@
 			<div class="heading_title">::: KERBAL MISSION CONTROL :::  </div>
 			<div id="world-clock" class="utc"> UT Y1 D1, 24:59:59</div>
 		</header>
-	
+
+        <div id="right" class="innertube">
 		<div id="ascension-data-and-button-panel">
 		<div id="button-panel">
 		    <button id="rcs" disabled="disabled" class="status">RCS</button>
@@ -132,13 +133,14 @@
 		    <button id="brake" disabled="disabled" class="status">BRK</button>
     	</div>
     	</div>
+        </div>
 
 		<!--main>
 			<div class="innertube">
-				
+
 				<h1>Heading</h1>
 				<p>kjhkhkh</p>
-				
+
 			</div>
 		</main>
 
@@ -162,19 +164,19 @@
 				</ul>
 
 			</div>
-		</nav>	
+		</nav>
 		<div id="right">
 			<div class="innertube">
 				<p>kjhkjh</p>
 			</div>
 		</div>
-		
+
 		<footer id="footer">
 			<div class="innertube">
 				<p>Footer...</p>
 			</div>
-		</footer-->	
-		
+		</footer-->
+
 
 	  <script>
 
@@ -225,7 +227,7 @@
       }
     })
 
-    
+
   window.datalink.rate = 1000
   window.groundTrack = new GroundTrack(datalink, 'gt-map', 'altitude-estimate-chart')
   window.rcsButtonIndicator = new ButtonIndicator(datalink, 'rcs', 'v.rcsValue')
@@ -310,6 +312,6 @@
 
   })
 
-  </script>	
+  </script>
 	</body>
 </html>

@@ -2,8 +2,8 @@ body {
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
-			height: 100%; 
-			max-height: 100%; 
+			height: 100%;
+			max-height: 100%;
 			font-family:Sans-serif;
 			line-height: 1.5em;
 		}
@@ -12,18 +12,18 @@ body {
 			position: fixed;
 			top: 28px; /* Set this to the height of the header */
 			bottom: 50px; /* Set this to the height of the footer */
-			left: 200px; 
+			left: 200px;
 			right: 200px;
-			overflow: auto; 
+			overflow: auto;
 			background: #343434;
 		}
-				
+
 		#title-bar {
-			
+
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 28px; 
+			height: 28px;
 			margin: 0px;
 			overflow: hidden; /* Disables scrollbars on the header frame. To enable scrollbars, change "hidden" to "scroll" */
 			background: #005806;
@@ -35,33 +35,35 @@ body {
 			left: 0;
 			bottom: 0;
 			width: 100%;
-			height: 50px; 
+			height: 50px;
 			overflow: hidden; /* Disables scrollbars on the footer frame. To enable scrollbars, change "hidden" to "scroll" */
 			background: #BCCE98;
 		}
-				
+
 		#left {
-			position: absolute; 
+			position: absolute;
 			top: 50px; /* Set this to the height of the header */
 			bottom: 50px; /* Set this to the height of the footer */
-			left: 0; 
+			left: 0;
 			width: 200px;
 			overflow: auto; /* Scrollbars will appear on this frame only when there's enough content to require scrolling. To disable scrollbars, change to "hidden", or use "scroll" to enable permanent scrollbars */
-			background: #DAE9BC; 		
+			background: #DAE9BC;
 		}
 
 		#right {
-			position: absolute; 
+			position: absolute;
 			top: 50px; /* Set this to the height of the header */
 			bottom: 50px; /* Set this to the height of the footer */
-			right: 0; 
-			width: 200px;
-			overflow: auto; /* Scrollbars will appear on this frame only when there's enough content to require scrolling. To disable scrollbars, change to "hidden", or use "scroll" to enable permanent scrollbars */
-			background: #F7FDEB; 		
+			right: 0;
+			width: 250px;
+			overflow: hidden; /* Scrollbars will appear on this frame only when there's enough content to require scrolling. To disable scrollbars, change to "hidden", or use "scroll" to enable permanent scrollbars */
+			background: #343434;
+      margin: 0px;
 		}
-				
+
 		.innertube {
 			margin: 2px; /* Provides padding for the content */
+      /* padding: 5px; */
 		}
 
 		.heading_title {
@@ -82,7 +84,7 @@ body {
 			display: table-cell;
 			width: 30%;
 		}
-		
+
 		p {
 			margin: 0px;
 		}
@@ -92,20 +94,20 @@ body {
 			margin: 0;
 			padding: 0;
 		}
-		
+
 		nav ul a {
 			color: darkgreen;
 			text-decoration: none;
 		}
-				
+
 		/*IE6 fix*/
 		* html body{
 			padding: 50px 200px 50px 200px; /* Set the first value to the height of the header, the second value to the width of the right column, third value to the height of the footer, and last value to the width of the left column */
 		}
-		
-		* html main{ 
-			height: 100%; 
-			width: 100%; 
+
+		* html main{
+			height: 100%;
+			width: 100%;
 		}
 
 
@@ -249,52 +251,40 @@ button.status{
   height: 30px;
   /* RCS: */
   font-size: 14px;
-  color: #666666;
+  color: #017009;
   text-align: center;
-  padding: 0;
-
-  border: 1px solid #4A4A4A;
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
-  border-radius: 3px;
-
-  background-color: #FFFFFF;
-  background-image: linear-gradient(-180deg, #747474 50%, rgba(0,0,0,0.50) 100%);
+  padding: 2px;
+  border: 0px;
+  border-radius: 2px;
+  background-color: #005806;
 }
 
 button.status.on{
-  background-image: radial-gradient(70% 70%, rgba(255,255,255,0.50) 39%, rgba(0,0,0,0.50) 100%) !important;
+  /* background-image: radial-gradient(70% 70%, rgba(255,255,255,0.50) 39%, rgba(0,0,0,0.50) 100%) !important; */
 }
 
 button#rcs{
-  color: #417505;
-  background-image: linear-gradient(-180deg, rgba(56,56,56,.5) 50%, rgba(0,0,0,.5) 100%);
-  background-color: rgba(126,211,33,1);
+  background-color: #02770A;
 }
 
 button#sas{
-  color: #19314D
+  background-color: #004658;
 }
 
 button#light{
-  color: rgba(0,0,0,.3);
-  font-size: 18px;
+  background-color: #585100;
 }
 
 button#gear{
-  font-size: 18px;
-  background-image: linear-gradient(-180deg, rgba(56,56,56,.5) 50%, rgba(0,0,0,.5) 100%);
-  background-color: rgba(76,145,192,1);
-  color: #2F5975
+  background-color: #365800;
+
 }
 
 button#brake{
-  color: #75010F;
-  background-image: linear-gradient(-180deg, rgba(56,56,56,.5) 50%, rgba(0,0,0,.5) 100%);
-  background-color: #D0021B;
+  background-color: #583600;
 }
 
 button#gear.on{
-  background-color: #4C91C0;
 }
 
 button#rcs.on{
@@ -303,7 +293,7 @@ button#rcs.on{
 
 button#sas.on{
   /* SAS: */
-  color: #4A90E2;
+  color: #AAFFCC;
 }
 
 button#light.on{
