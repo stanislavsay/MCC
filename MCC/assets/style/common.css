@@ -1,0 +1,315 @@
+body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			height: 100%; 
+			max-height: 100%; 
+			font-family:Sans-serif;
+			line-height: 1.5em;
+		}
+
+		main {
+			position: fixed;
+			top: 28px; /* Set this to the height of the header */
+			bottom: 50px; /* Set this to the height of the footer */
+			left: 200px; 
+			right: 200px;
+			overflow: auto; 
+			background: #343434;
+		}
+				
+		#title-bar {
+			
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 28px; 
+			margin: 0px;
+			overflow: hidden; /* Disables scrollbars on the header frame. To enable scrollbars, change "hidden" to "scroll" */
+			background: #005806;
+			padding: 0px;
+		}
+
+		#footer {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 50px; 
+			overflow: hidden; /* Disables scrollbars on the footer frame. To enable scrollbars, change "hidden" to "scroll" */
+			background: #BCCE98;
+		}
+				
+		#left {
+			position: absolute; 
+			top: 50px; /* Set this to the height of the header */
+			bottom: 50px; /* Set this to the height of the footer */
+			left: 0; 
+			width: 200px;
+			overflow: auto; /* Scrollbars will appear on this frame only when there's enough content to require scrolling. To disable scrollbars, change to "hidden", or use "scroll" to enable permanent scrollbars */
+			background: #DAE9BC; 		
+		}
+
+		#right {
+			position: absolute; 
+			top: 50px; /* Set this to the height of the header */
+			bottom: 50px; /* Set this to the height of the footer */
+			right: 0; 
+			width: 200px;
+			overflow: auto; /* Scrollbars will appear on this frame only when there's enough content to require scrolling. To disable scrollbars, change to "hidden", or use "scroll" to enable permanent scrollbars */
+			background: #F7FDEB; 		
+		}
+				
+		.innertube {
+			margin: 2px; /* Provides padding for the content */
+		}
+
+		.heading_title {
+			margin: 2px; /* Provides padding for header title */
+			font-weight: bolder;
+			font-family: monospace;
+			font-size: 16px;
+			color: #FFFFFF;
+			display: table-cell;
+			width: 70%;
+		}
+
+		.utc {
+			margin: 2px;
+			font-family: monospace;
+			font-size: 14px;
+			color: #AAFFCC;
+			display: table-cell;
+			width: 30%;
+		}
+		
+		p {
+			margin: 0px;
+		}
+
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		nav ul a {
+			color: darkgreen;
+			text-decoration: none;
+		}
+				
+		/*IE6 fix*/
+		* html body{
+			padding: 50px 200px 50px 200px; /* Set the first value to the height of the header, the second value to the width of the right column, third value to the height of the footer, and last value to the width of the left column */
+		}
+		
+		* html main{ 
+			height: 100%; 
+			width: 100%; 
+		}
+
+
+
+nav{
+  background-color: #AAFFCC;
+  font-size: 24px;
+  text-shadow: 0px 2px 3px rgba(0,0,0,.8);
+  color: #d4d4d4;
+  box-shadow: inset 0px -1px 7px 0px rgba(0,0,0,0.50);
+}
+
+nav:not(.open){
+  height: 3px;
+}
+
+nav a{
+  color: #d4d4d4;
+  text-decoration: none;
+}
+
+nav.open{
+}
+
+nav ul {
+  display: none;
+  margin: 0px;
+  padding: 0px;
+  list-style-type:none;
+  white-space:nowrap;
+  overflow-x:auto;
+}
+
+nav.open ul{
+  display: block;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+nav.open ul li{
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+}
+
+nav.open ul li img{
+  max-height: 100px;
+  display: block;
+  border: 2px solid #4A4A4A;
+  box-shadow: 0px 2px 3px rgba(0,0,0,.8);
+  border-radius: 3px;
+  margin: auto;
+}
+
+#nav_toggle{
+  font-size: 15px;
+  font-weight: bolder;
+  position: relative;
+  background-color: #AAFFCC;
+  width: 80px;
+  text-align: center;
+  left: 800px;
+  border-radius: 5px;
+  padding-bottom: 5px;
+  padding-top: 0px;
+  bottom: 0px;
+}
+
+nav.open #nav_toggle{
+  padding-top: 0px;
+  bottom:-15px;
+}
+
+#settings_overlay{
+  display: none;
+}
+
+#settings_overlay.open{
+  display: block;
+}
+
+#settings_overlay{
+  z-index: 10000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, .8);
+}
+
+#settings{
+  position: relative;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  min-height: 200px;
+  background: white;
+  display: inline-block;
+  text-align: center;
+
+  background: #9B9B9B;
+  border-radius: 8px;
+
+  color: rgba(51,51,51, 1);
+  text-shadow: 0px 1px 1px rgba(255,255,255,.3);
+  border: 3px solid #4A4A4A;
+}
+
+#settings fieldset{
+  border: none;
+  position: relative;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  max-width: 400px;
+}
+
+#settings label{
+  width: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+}
+
+#settings button{
+  min-width: 100px;
+  background-color: rgba(51,51,51, 1);
+  border: 1px solid ;
+  border-radius: 8px;
+  border: 2px solid #9B9B9B;
+
+
+  text-shadow: 0px 2px 3px rgba(0,0,0,.8);
+  color: #d4d4d4;
+}
+
+button.status{
+  vertical-align: middle;
+  width: 60px;
+  height: 30px;
+  /* RCS: */
+  font-size: 14px;
+  color: #666666;
+  text-align: center;
+  padding: 0;
+
+  border: 1px solid #4A4A4A;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+  border-radius: 3px;
+
+  background-color: #FFFFFF;
+  background-image: linear-gradient(-180deg, #747474 50%, rgba(0,0,0,0.50) 100%);
+}
+
+button.status.on{
+  background-image: radial-gradient(70% 70%, rgba(255,255,255,0.50) 39%, rgba(0,0,0,0.50) 100%) !important;
+}
+
+button#rcs{
+  color: #417505;
+  background-image: linear-gradient(-180deg, rgba(56,56,56,.5) 50%, rgba(0,0,0,.5) 100%);
+  background-color: rgba(126,211,33,1);
+}
+
+button#sas{
+  color: #19314D
+}
+
+button#light{
+  color: rgba(0,0,0,.3);
+  font-size: 18px;
+}
+
+button#gear{
+  font-size: 18px;
+  background-image: linear-gradient(-180deg, rgba(56,56,56,.5) 50%, rgba(0,0,0,.5) 100%);
+  background-color: rgba(76,145,192,1);
+  color: #2F5975
+}
+
+button#brake{
+  color: #75010F;
+  background-image: linear-gradient(-180deg, rgba(56,56,56,.5) 50%, rgba(0,0,0,.5) 100%);
+  background-color: #D0021B;
+}
+
+button#gear.on{
+  background-color: #4C91C0;
+}
+
+button#rcs.on{
+  background-color: #7ED321;
+}
+
+button#sas.on{
+  /* SAS: */
+  color: #4A90E2;
+}
+
+button#light.on{
+  color: black;
+}
+
+button#brake.on{
+  background-color: #D0021B;
+}
