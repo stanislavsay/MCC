@@ -1,0 +1,424 @@
+@font-face {font-family: 'PT Mono';
+  src: url('../fonts/ptm55f_w.eot');
+  src: local('PT Mono'), url('../fonts/ptm55f_w.eot?#iefix') format('embedded-opentype'),url('../fonts/ptm55f_w.woff') format('woff'),url('ptf55m_w.ttf') format('truetype'), url('../fonts/ptm55f_w.svg#PTMono-Regular') format('svg');}
+
+@font-face {font-family: 'PT Mono';
+  src: url('../fonts/ptm75f_w.eot');
+  font-style: normal;
+  font-weight: bold;
+  src: local('PT Mono Bold'), url('../fonts/ptm75f_w.eot?#iefix') format('embedded-opentype'), url('../fonts/ptm75f_w.woff') format('woff'),url('../fonts/ptm75f_w.ttf') format('truetype'), url('../fonts/ptm75f_w.svg#PTMono-Bold') format('svg');}
+
+@font-face {
+    font-family: 'AeroMatics Display Bold';
+    src: url('../fonts/aero_matics_display_bold-webfont.eot');
+    src: url('../fonts/aero_matics_display_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aero_matics_display_bold-webfont.woff2') format('woff2'),
+         url('../fonts/aero_matics_display_bold-webfont.woff') format('woff'),
+         url('../fonts/aero_matics_display_bold-webfont.ttf') format('truetype'),
+         url('../fonts/aero_matics_display_bold-webfont.svg#aero_matics_displaybold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			height: 100%;
+			max-height: 100%;
+			font-family:Sans-serif;
+			line-height: 1.5em;
+      background: #070D1D;
+		}
+
+		main {
+			position: fixed;
+			top: 28px; /* Set this to the height of the header */
+			bottom: 50px; /* Set this to the height of the footer */
+			left: 200px;
+			right: 200px;
+			overflow: auto;
+		}
+
+		#title-bar {
+
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 30px;
+			margin: 0px;
+			overflow: hidden; /* Disables scrollbars on the header frame. To enable scrollbars, change "hidden" to "scroll" */
+			background: #08243D;
+			padding: 0px;
+		}
+
+		#footer {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 50px;
+			overflow: hidden; /* Disables scrollbars on the footer frame. To enable scrollbars, change "hidden" to "scroll" */
+			background: #BCCE98;
+		}
+
+		#left {
+			position: absolute;
+			top: 50px; /* Set this to the height of the header */
+			bottom: 50px; /* Set this to the height of the footer */
+			left: 0;
+			width: 200px;
+			overflow: auto; /* Scrollbars will appear on this frame only when there's enough content to require scrolling. To disable scrollbars, change to "hidden", or use "scroll" to enable permanent scrollbars */
+			background: #DAE9BC;
+		}
+
+		#right {
+			position: absolute;
+			top: 50px; /* Set this to the height of the header */
+			bottom: 50px; /* Set this to the height of the footer */
+			right: 0;
+			width: 250px;
+			overflow: hidden; /* Scrollbars will appear on this frame only when there's enough content to require scrolling. To disable scrollbars, change to "hidden", or use "scroll" to enable permanent scrollbars */
+			background: #343434;
+      margin: 0px;
+		}
+
+		.innertube {
+			margin: 2px; /* Provides padding for the content */
+      /* padding: 5px; */
+		}
+
+		.heading_title {
+			margin: 2px; /* Provides padding for header title */
+			font-weight: bolder;
+			font-family: 'AeroMatics Display Bold';
+			font-size: 24px;
+			color: #FFFFFF;
+			display: table-cell;
+			width: 300px;
+		}
+
+		.utc {
+			margin: 2px;
+			font-family: 'PT Mono';
+      font-weight: bold;
+			font-size: 18px;
+			color: #FFFFFF;
+			display: table-cell;
+			width: 20%;
+		}
+
+    .met {
+      position: relative;
+      margin: 2px;
+      font-family: 'PT Mono';
+      font-weight: bolder;
+      font-size: 24px;
+      color: #FFFFFF;
+      display: table-cell;
+      width: 100px;
+    }
+
+		p {
+			margin: 0px;
+		}
+
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		nav ul a {
+			color: white;
+			text-decoration: none;
+		}
+
+		/* Set the first value to the height of the header, the second value to the width of the right column, third value to the height of the footer, and last value to the width of the left column */
+    /*IE6 fix
+		* html body{
+			padding: 50px 200px 50px 200px;
+
+		}
+    */
+
+		* html main{
+			height: 100%;
+			width: 100%;
+		}
+
+
+
+nav{
+  background-color: #093552;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+nav:not(.open){
+  height: 3px;
+}
+
+nav a{
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+nav.open{
+}
+
+nav ul {
+  display: none;
+  margin: 0px;
+  padding: 0px;
+  list-style-type:none;
+  white-space:nowrap;
+  overflow-x:auto;
+}
+
+nav.open ul{
+  display: block;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+nav.open ul li{
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+}
+
+nav.open ul li img{
+  max-height: 100px;
+  display: block;
+  border: 2px solid #4A4A4A;
+  box-shadow: 0px 2px 3px rgba(0,0,0,.8);
+  border-radius: 3px;
+  margin: auto;
+}
+
+#nav_toggle{
+  font-size: 14px;
+  font-weight: bolder;
+  position: absolute;
+  background-color: #093552;
+  width: 80px;
+  text-align: center;
+  right: 300px;
+  top: 3px;
+  border-radius: 0px;
+  padding-bottom: 5px;
+  padding-top: 0px;
+
+}
+
+nav.open #nav_toggle{
+  padding-top: 0px;
+  top:28px;
+}
+
+#settings_overlay{
+  display: none;
+}
+
+#settings_overlay.open{
+  display: block;
+}
+
+#settings_overlay{
+  z-index: 10000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, .8);
+}
+
+#settings{
+  position: relative;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  min-height: 200px;
+  background: white;
+  display: inline-block;
+  text-align: center;
+
+  background: #9B9B9B;
+  border-radius: 8px;
+
+  color: rgba(51,51,51, 1);
+  text-shadow: 0px 1px 1px rgba(255,255,255,.3);
+  border: 3px solid #4A4A4A;
+}
+
+#settings fieldset{
+  border: none;
+  position: relative;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  max-width: 400px;
+}
+
+#settings label{
+  width: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+}
+
+#settings button{
+  min-width: 100px;
+  background-color: rgba(51,51,51, 1);
+  border: 1px solid ;
+  border-radius: 8px;
+  border: 2px solid #9B9B9B;
+
+
+  text-shadow: 0px 2px 3px rgba(0,0,0,.8);
+  color: #d4d4d4;
+}
+
+
+button.status{
+  vertical-align: middle;
+  width: 50px;
+  height: 20px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #789AA7;
+  text-align: center;
+  padding: 2px;
+  border: 0px;
+  border-radius: 1px;
+  background-color: #0F4361;
+}
+
+button.status.on{
+  /*background-image: radial-gradient(70% 70%, rgba(255,255,255,0.50) 39%, rgba(0,0,0,0.50) 100%) !important;*/
+  background-color: #415E71;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+
+button#rcs{
+  /*background-color: #02770A;*/
+}
+
+button#sas{
+  /*background-color: #004658;*/
+}
+
+button#light{
+  /*background-color: #585100;*/
+}
+
+button#gear{
+  /*background-color: #365800;*/
+
+}
+
+button#brake{
+  /*background-color: #583600;*/
+}
+
+button#gear.on{
+}
+
+button#rcs.on{
+  /*background-color: #7ED321;*/
+}
+
+button#sas.on{
+  /*color: #AAFFCC;*/
+}
+
+button#light.on{
+  /*color: black;*/
+}
+
+button#brake.on{
+  /*background-color: #D0021B;*/
+}
+
+.orbit-info-display {
+  border: 1px solid #0F4361;
+  color: #FFFFFF;
+  padding: 5px;
+  width: 200px;
+}
+
+.orbit-info-caption {
+  color: #298EBC;
+  font-weight: bolder;
+  font-size: 14px;
+  text-align: left;
+  border-width: 0px;
+  border-bottom: 2px;
+  border-color: #0F4361;
+  border-style: solid;
+}
+
+.orbit-info-table {
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: 0px;
+
+}
+
+.data-label {
+  color: #298EBC;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+  width: 50%;
+}
+
+.data-value {
+  color: #94A5B9;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: right;
+
+}
+
+progress.throttle {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  width: 150px;
+  height: 40px;
+  position: relative;
+}
+
+progress.throttle::-webkit-progress-value{
+  background-color: #298EBC;
+}
+
+.throttle-caption {
+  transform: rotate(-90deg);
+  float: left;
+  color: #298EBC;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.throttle,progress.throttle::-webkit-progress-bar{
+background-color: #0F4361;
+  /* Rectangle 93: */
+  background-image:
+    /* the major tick marks*/
+    linear-gradient(90deg, #94A5B9 1%, transparent 1%, transparent 49%, #94A5B9 49%, #94A5B9 50%, transparent 50%, transparent 78%, transparent 99%, #94A5B9 99%),
+    /* semi-major tick marks */
+    repeating-linear-gradient(90deg, transparent, transparent 24%, #94A5B9 24%, #94A5B9 25%),
+    /* minor tick marks */
+    repeating-linear-gradient(90deg, transparent, transparent 4%, #94A5B9 4%, #94A5B9 5%);
+
+  background-size: 100% 100%, 100% 75%, 100% 50%;
+  background-position: top, top, top;
+  background-repeat: no-repeat;
+}

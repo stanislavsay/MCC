@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!-- Template by html.am -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>KERBAL MISSION CONTROL</title>
+		<script src="assets/js/math_polyfill.js"></script>
+		<script src="assets/js/math.js"></script>
+		<script src="assets/js/numeric.js"></script>
+		<script src="assets/js/numeral.min.js"></script>
+		<script src="assets/js/chartist.min.js"></script>
+		<script src="assets/js/time_formatters.js"></script>
+		<script src="assets/js/data_formatters.js"></script>
+		<script src="assets/js/prototype.js"></script>
+		<script src="assets/js/event.simulate.js"></script>
+		<script src="assets/js/data_table.js"></script>
+		<script src="assets/js/leaflet.ksp.js"></script>
+		<script src="assets/js/L.Graticule.js"></script>
+		<script src="assets/js/three.min.js"></script>
+		<script src="assets/js/THREEx.FullScreen.js"></script>
+		<script src="assets/js/tween.min.js"></script>
+		<script src="assets/js/orbit_controls.js"></script>
+		<script src="assets/js/dat.gui.min.js"></script>
+
+
+		<script src="assets/js/settings.js"></script>
+		<script src="assets/js/telemachus.js"></script>
+		<script src="assets/js/orbital_math.js"></script>
+		<script src="assets/js/orbital_prediction.js"></script>
+		<script src="assets/js/hohmann-intercept.js"></script>
+
+		<script src="assets/js/title_bar.js"></script>
+		<script src="assets/js/button_indicator.js"></script>
+		<script src="assets/js/readout_table.js"></script>
+		<script src="assets/js/orbiting_body_info_table.js"></script>
+		<script src="assets/js/resource_monitor.js"></script>
+		<script src="assets/js/ground_track.js"></script>
+		<script src="assets/js/position_map.js"></script>
+		<script src="assets/js/navball.js"></script>
+		<script src="assets/js/atmospheric_density_gauge.js"></script>
+		<script src="assets/js/throttle_gauge.js"></script>
+		<script src="assets/js/altitude_tracker.js"></script>
+
+		<script src="assets/js/current_stage_burn_info.js"></script>
+		<script src="assets/js/burn_planner.js"></script>
+		<script src="assets/js/staging_info_table.js"></script>
+		<script src="assets/js/maneuver_node_editor.js"></script>
+
+		<script src="assets/js/orbital_position_data.js"></script>
+		<script src="assets/js/position_data_formatter.js"></script>
+		<script src="assets/js/orbital_map.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="assets/style/common.css">
+
+	</head>
+
+	<body>
+
+		<nav>
+		    <ul>
+		      <li id="" class="current">
+		  <a href="../ground-track/index.html">Ground Track</a>
+		</li>
+
+		      <li id="" class="">
+		  <a href="../ascension/index.html">Ascension</a>
+		</li>
+
+		      <li id="" class="">
+		  <a href="../landing/index.html">Landing
+		  </a>
+		</li>
+
+		      <li id="" class="">
+		  <a href="../boost/index.html">BOOST/EECOM</a>
+		</li>
+
+		      <li id="" class="">
+		  <a href="../fido/index.html">FIDO</a>
+		</li>
+
+		      <li id="" class="">
+		  <a href="../3dmap/index.html">Orbital Map</a>
+		</li>
+
+		      <li id="" class="">
+		  <a href="../science/index.html">SCIENCE</a>
+		</li>
+
+		      <li id="telemachus-console" class="">
+		  <a href="/telemachus/console.html">Telemachus Console</a>
+		</li>
+
+		      <li id="mkon" class="">
+		  <a href="/telemachus/MKON/index.html">MKON</a>
+		</li>
+
+		      <li id="settings-link" class="">
+		  <a href="#settings">Settings</a>
+		</li>
+		    </ul>
+		    <div id="nav_toggle"><a href="#">&darr; Open</a></div>
+		</nav>
+
+		<section id="settings_overlay" >
+		    <form id="settings">
+		      <h2>Settings</h2>
+		      <fieldset>
+		        <label for="host">Host</label>
+		        <input name="host" id="host" type="text" placeholder="localhost"/><br>
+
+		        <label for="port">Port</label>
+		        <input name="port" id="port" type="text" placeholder="8085"/>
+		      </fieldset>
+
+		      <button type="submit">Save &amp; Close</button>
+		    </form>
+		</section>
+
+
+		<header id="title-bar">
+			<div class="heading_title">::: KERBAL MISSION CONTROL :::  </div>
+			<div id="mission-time-warp-indicator" class="met">
+                <span id="mission-time">T+12:34:14</span>
+            </div>
+            <div id="world-clock" class="utc"> UT Y1 D1, 24:59:59</div>
+		</header>
+
+
+		<div id="ascension-data-and-button-panel">
+		<div id="button-panel">
+		    <button id="rcs" disabled="disabled" class="status">RCS</button>
+		    <button id="sas" disabled="disabled" class="status">SAS</button>
+		    <button id="light" disabled="disabled" class="status">LGHT</button>
+		    <button id="gear" disabled="disabled" class="status">GEAR</button>
+		    <button id="brake" disabled="disabled" class="status">BRK</button>
+    	</div>
+    	</div>
+        <div class="orbit-info-display">
+            <table id="orbit-info" class="orbit-info-table">
+                <caption class="orbit-info-caption">ORBIT INFO</caption>
+            </table>
+            <table id="vessel-speed" class="orbit-info-table">
+                <caption class="orbit-info-caption">DANGER ZONE</caption>
+            </table>
+            <table id="docking-info" class="orbit-info-table">
+                <caption class="orbit-info-caption">DOCKING INFO</caption>
+            </table>
+            <div class="throttle-wrapper gauge">
+                <table class="orbit-info-table" width="150px">
+                    <caption class="orbit-info-caption">SYSTEMS</caption>
+                    <th class="throttle-caption">THROTTLE</th>
+                    <td height="150px" valign="middle"><progress id="throttle" class="throttle"></progress></td>
+                </table>
+
+
+            </div>
+        </div>
+
+
+		<!--main>
+			<div class="innertube">
+
+				<h1>Heading</h1>
+				<p>kjhkhkh</p>
+
+			</div>
+		</main>
+
+		<nav id="left">
+			<div class="innertube">
+				<h1>Heading</h1>
+				<ul>
+					<li><a href="#">Link 1</a></li>
+					<li><a href="#">Link 2</a></li>
+					<li><a href="#">Link 3</a></li>
+					<li><a href="#">Link 4</a></li>
+					<li><a href="#">Link 5</a></li>
+				</ul>
+				<h1>Heading</h1>
+				<ul>
+					<li><a href="#">Link 1</a></li>
+					<li><a href="#">Link 2</a></li>
+					<li><a href="#">Link 3</a></li>
+					<li><a href="#">Link 4</a></li>
+					<li><a href="#">Link 5</a></li>
+				</ul>
+
+			</div>
+		</nav>
+		<div id="right">
+			<div class="innertube">
+				<p>kjhkjh</p>
+			</div>
+		</div>
+
+		<footer id="footer">
+			<div class="innertube">
+				<p>Footer...</p>
+			</div>
+		</footer-->
+
+
+	  <script>
+
+  $(document).observe("dom:loaded", function() {
+    window.settings = new Settings(window.location.hostname, window.location.port)
+    $('settings')['host'].value = settings.getHost()
+    $('settings')['port'].value = settings.getPort()
+
+    function updateTelemachusAndMKONLinks(){
+      var baseURL = "http://" + settings.getHost() + ":" + settings.getPort()
+      $('telemachus-console').down('a').href = baseURL + "/telemachus/console.html"
+      $('mkon').down('a').href = baseURL + "/telemachus/MKON/index.html"
+    }
+
+    updateTelemachusAndMKONLinks()
+
+    $('settings-link').observe('click', function(e){
+      e.preventDefault()
+      $('settings_overlay').addClassName('open')
+    })
+
+    $('settings').observe('submit', function(e){
+      e.preventDefault();
+      var form = e.target
+      window.settings.setHost(form['host'].value)
+      window.settings.setPort(form['port'].value)
+
+      window.datalink.updateConnection(
+        window.settings.getHost(),
+        window.settings.getPort()
+      )
+
+      updateTelemachusAndMKONLinks()
+
+      $('settings_overlay').removeClassName('open')
+    })
+
+    window.datalink = new Telemachus(settings.getHost(), settings.getPort())
+    window.titleBar = new TitleBar(datalink, 'title-bar')
+
+    $('nav_toggle').observe("click", function(e){
+      var nav = $$('nav')[0]
+      nav.toggleClassName('open')
+      if(nav.hasClassName('open')){
+        $('nav_toggle').down('a').update('&uarr; Close')
+      } else{
+        $('nav_toggle').down('a').update('&darr; Open')
+      }
+    })
+
+
+  /*window.datalink.rate = 1000*/
+  /*window.groundTrack = new GroundTrack(datalink, 'gt-map', 'altitude-estimate-chart')*/
+  window.rcsButtonIndicator = new ButtonIndicator(datalink, 'rcs', 'v.rcsValue')
+  window.sasButtonIndicator = new ButtonIndicator(datalink, 'sas', 'v.sasValue')
+  window.lightButtonIndicator = new ButtonIndicator(datalink, 'light', 'v.lightValue')
+  window.gearButtonIndicator = new ButtonIndicator(datalink, 'gear', 'v.gearValue')
+  window.brakeButtonIndicator = new ButtonIndicator(datalink, 'brake', 'v.brakeValue')
+
+  window.throttleGauge = new ThrottleGauge(window.datalink, 'throttle')
+
+  window.orbitInfoTable = new ReadoutTable(datalink, 'orbit-info', [
+    {
+      label: "ALT",
+      value: 'v.altitude',
+      formatter: function(value){ return DataFormatters.distanceString(value) }
+    },
+    {
+      label: "APO",
+      value: 'o.ApA',
+      formatter: function(value){ return DataFormatters.distanceString(value) }
+    },
+    {
+      label: "PER",
+      value: 'o.PeA',
+      formatter: function(value){ return DataFormatters.distanceString(value) }
+    },
+    {
+      label: "TIME TO AP",
+      value: 'o.timeToAp',
+      formatter: function(value){ return "-" + TimeFormatters.durationString(value) }
+    },
+    {
+      label: "TIME TO PE",
+      value: 'o.timeToPe',
+      formatter: function(value){ return "-" + TimeFormatters.durationString(value) }
+    },
+    {
+      label: "INC",
+      value: 'o.inclination',
+      formatter: function(value){ return DataFormatters.degreeString(value) }
+    },
+    {
+      label: "ECC",
+      value: 'o.eccentricity',
+      formatter: function(value){ return value.toFixed(3) }
+    },
+    {
+      label: "ORB PERIOD",
+      value: 'o.period',
+      formatter: function(value){ return TimeFormatters.durationString(value) }
+    },
+    {
+      label: "TRUE ANOMALY",
+      value: 'o.trueAnomaly',
+      formatter: function(value){ return DataFormatters.degreeString(value) }
+    },
+  ])
+
+  window.vesselSpeedTable = new ReadoutTable(datalink, 'vessel-speed', [
+    {
+      label: "SURF VEL",
+      value: 'v.surfaceVelocity',
+      formatter: function(value){ return DataFormatters.velocityString(value) }
+    },
+    {
+      label: "V VEL",
+      value: 'v.verticalSpeed',
+      formatter: function(value){ return DataFormatters.velocityString(value) }
+    },
+    {
+      label: "ORB SEL",
+      value: 'v.orbitalVelocity',
+      formatter: function(value){ return DataFormatters.velocityString(value) }
+    },
+    {
+      label: "RTV VEL",
+      value: 'o.relativeVelocity',
+      formatter: function(value){ return DataFormatters.velocityString(value) }
+    },
+    {
+      label: "TGT RTV VEL",
+      value: 'tar.o.relativeVelocity',
+      formatter: function(value){ return DataFormatters.velocityString(value) }
+    },
+    {
+      label: "GFRC",
+      value: 'v.geeForce',
+      formatter: function(value){ return value.toFixed(3) }
+    },
+  ])
+
+  window.dockingInfoTable = new ReadoutTable(datalink, 'docking-info', [
+    {
+      label: "ANGL X",
+      value: 'dock.ax',
+      formatter: function(value){ return DataFormatters.degreeString(value) }
+    },
+    {
+      label: "ANGL Y",
+      value: 'dock.ay',
+      formatter: function(value){ return DataFormatters.degreeString(value) }
+    },
+    {
+      label: "ANGL Z",
+      value: 'dock.az',
+      formatter: function(value){ return DataFormatters.degreeString(value) }
+    },
+    {
+      label: "DSTN X",
+      value: 'dock.x',
+      formatter: function(value){ return DataFormatters.distanceString(value) }
+    },
+    {
+      label: "DSTN Y",
+      value: 'dock.y',
+      formatter: function(value){ return DataFormatters.distanceString(value) }
+    }
+  ])
+
+  })
+
+  </script>
+	</body>
+</html>

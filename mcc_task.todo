@@ -1,0 +1,11 @@
+MISSION CONTROL:
+  ☐ Telemetry parameters @started(16-04-14 09:55)
+    ✔ RCS @done (16-04-14 11:31)
+    ✔ SAS @done (16-04-14 11:31)
+    ✔ Light @done (16-04-14 11:31)
+    ✔ Gear @done (16-04-14 11:31)
+    ✔ Break @done (16-04-14 11:31)
+    ✔ UT @done (16-04-14 11:31)
+      Universy Time [Done only in same table with MET]
+    ✔ MET @done (16-04-14 11:32)
+      Mission Estimated Time [Done only in same table with UT]
